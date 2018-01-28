@@ -33,21 +33,4 @@ public class MessageController {
 
 		return "Secured (" + email + ")";
 	}
-
-	// @RequestMapping("/user")
-	// @SuppressWarnings("unchecked")
-	// public Map<String, String> user(Principal principal) {
-	// if (principal != null) {
-	// OAuth2Authentication oAuth2Authentication = (OAuth2Authentication)
-	// principal;
-	// Authentication authentication =
-	// oAuth2Authentication.getUserAuthentication();
-	// Map<String, String> details = new LinkedHashMap<>();
-	// details = (Map<String, String>) authentication.getDetails();
-	// Map<String, String> map = new LinkedHashMap<>();
-	// map.put("email", details.get("email"));
-	// return map;
-	// }
-	// return null;
-	// }
 }
