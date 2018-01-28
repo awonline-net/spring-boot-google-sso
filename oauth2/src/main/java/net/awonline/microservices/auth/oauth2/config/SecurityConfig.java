@@ -25,7 +25,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 		// @formatter:on
-
 		http.formLogin().and()
 				.authorizeRequests()
 				.antMatchers("/public").permitAll()
@@ -33,7 +32,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.authenticated()
 				.antMatchers("/secured").hasRole("ADMIN")
 			.anyRequest().authenticated();
-
 		// @formatter:off
 	}
 
@@ -47,12 +45,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		@Override
 		public List<GrantedAuthority> extractAuthorities(Map<String, Object> map) {
 
-			boolean userExist = true;
+			boolean userExist = true; // TODO check if the user is permitted to log in
 			if (!userExist) {
 				throw new BadCredentialsException("User does not exists");
 			}
 
-			String authorities = "ROLE_ADMIN";
+			String authorities = "ROLE_ADMIN"; // TODO load authorities
 			return AuthorityUtils.commaSeparatedStringToAuthorityList(authorities);
 		}
 	}
